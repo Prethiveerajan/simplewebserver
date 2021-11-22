@@ -111,7 +111,6 @@ Memory corruption can also take place if one puts wrong values in the same. To s
 
      
    <h2> disadvantages of java </h2>
-    
     <h3>
 1.It is a more slow language when contrasted with different dialects as it is a memory burning-through language.<br>
 
@@ -134,8 +133,9 @@ coding.</h3>
 3. No long guidelines<br>
 4. Prevents memory leakage </h3> <BR>
 <h2> disadvantages of swift </h2> <br>
- <h3>1. Volatile due to continuous updation < br>
-2. Limited </h3> <br>
+ <h3>1. Volatile due to continuous updation <br>
+
+2. Limited </h3>
 
 
 
@@ -149,18 +149,6 @@ coding.</h3>
 
 
 </html>
-"""
-class myhandler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        print("request received")
-        self.send_response(200)
-        self.send_header('content-type', 'text/html; charset=utf-8')
-        self.end_headers()
-        self.wfile.write(content.encode())
-server_address = ('',8080)
-httpd = HTTPServer(server_address,myhandler)
-print("my webserver is running...")
-httpd.serve_forever()
 
 
 
