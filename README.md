@@ -15,10 +15,17 @@ Serving the HTML pages.
 Testing the webserver
 
 ## PROGRAM:
-<h1>top 5 programming langauges </h1>
+from http.server import HTTPServer, BaseHTTPRequestHandler
+content = """
+<!DOCTYPE html>
+<html>
+<head>
+<title>My webserver</title>
+</head>
+<body>
+<h1>Top 5 programming langauges </h1>
 
-
-<h2>JAVA SCRIPT</h2> <br>
+<h2>JAVA SCRIPT</h2><br>
 
 <h3>java script often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled and multi-paradigm. It has dynamic typing, prototype-based object-orientation and first-class functions.</h3>
 
@@ -134,21 +141,23 @@ coding.</h3>
 4. Prevents memory leakage </h3> <BR>
 <h2> disadvantages of swift </h2> <br>
  <h3>1. Volatile due to continuous updation <br>
+ 2. Limited </h3>
 
-2. Limited </h3>
-
-
-
-
-
-
-</h3>
-
-
-
-
-
+</body>
 </html>
+"""
+class myhandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print("request received")
+        self.send_response(200)
+        self.send_header('content-type', 'text/html; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(content.encode())
+server_address = ('',8080)
+httpd = HTTPServer(server_address,myhandler)
+print("my webserver is running...")
+httpd.serve_forever()
+
 
 
 
